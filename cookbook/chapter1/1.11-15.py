@@ -52,3 +52,23 @@ if __name__ == '__main__':
     # correct
     other = ['why', 'are', 'you', 'not', 'looking', 'in', 'my', 'eyes']
     print(Counter(other) + word_count)
+
+    # 1.13 通过指定关键字排序字典列表
+    rows = [
+        {'fname': 'Brian', 'lname': 'Jones', 'uid': 1003},
+        {'fname': 'David', 'lname': 'Beazley', 'uid': 1002},
+        {'fname': 'John', 'lname': 'Cleese', 'uid': 1001},
+        {'fname': 'Big', 'lname': 'Jones', 'uid': 1004}
+    ]
+
+    from operator import itemgetter
+    # itemgetter 用于转化对象为 callable 类型，以便排序函数的使用
+    # 通过指定字典键来进行排序
+    print(sorted(rows, key=itemgetter('fname')))
+    # 通过lambda函数也能实现，但是由于operator库底层为C语言，因此速度相比要快一些
+    # print(sorted(rows, key=lambda x: x['fname']))
+
+    # 多重key排列
+    print(sorted(rows, key=itemgetter('fname', 'lname')))
+    # print(sorted(rows, key=lambda x: (x['fname'], x['lname'])))
+
