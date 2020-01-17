@@ -71,4 +71,3 @@ if __name__ == '__main__':
     # 多重key排列
     print(sorted(rows, key=itemgetter('fname', 'lname')))
     # print(sorted(rows, key=lambda x: (x['fname'], x['lname'])))
-
